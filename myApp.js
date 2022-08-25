@@ -46,10 +46,17 @@ app.get("/:word/echo", (req, res) => {
   res.json({ echo: requestWord });
 });
 
-app.route("/name").get((req, res) => {
-  const fullName = req.query.first + " " + req.query.last;
+app
+  .route("/name")
+  .get((req, res) => {
+    const fullName = req.query.first + " " + req.query.last;
 
-  res.json({ name: fullName });
-});
+    res.json({ name: fullName });
+  })
+  .post((req, res) => {
+    const fullNameSubmittedFromForm = req.body.first + " " + req.body.last;
+
+    res.json({ name: fullNameSubmittedFromForm });
+  });
 
 module.exports = app;
