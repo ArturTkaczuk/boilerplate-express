@@ -35,4 +35,11 @@ app.get(
   }
 );
 
+app.get("/:word/echo", (req, res) => {
+  const requestWord = req.params.word;
+  console.log("req.params: ", req.params, "req.params.word: ", req.params.word);
+
+  res.json({ echo: requestWord });
+});
+
 module.exports = app;
